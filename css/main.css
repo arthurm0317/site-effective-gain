@@ -1,0 +1,147 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.top_section{
+    display: flex;
+    position: relative;
+    height: 1000px;
+    background-image: url(../midia/effective_gain_1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.header_main nav{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: left;
+    gap: 300px;
+    flex-direction: row;
+}
+.logo_img_name{
+    display: flex;
+    align-items: center;
+    margin-left: 120px;
+    margin-top: 20px;
+    gap: 10px;
+}
+.logo_image{
+    height: 50px;
+}
+.logo_name{
+    font-size: 24px;
+    text-decoration: none;
+    color: #0082ca;
+    font-weight: bold;
+    transition: 0.5s;
+}
+.logo_name:hover{
+    color: #079fe1;
+}
+.list_home_about_plans{
+    align-items: center;
+    display: flex;
+    gap: 60px;
+    list-style: none;
+}
+.list_content_home, .list_content {
+    margin-top: 20px;
+    font-size: 20px;
+}
+.list_content_home a{
+    font-weight: bold;
+    width: 10px;
+    text-decoration: none;
+    color:  #0082ca;
+    transition: 0.5s;
+}
+.list_content a{
+    font-weight: bold;
+    width: 10px;
+    text-decoration: none;
+    color: #787878;
+    transition: 0.5s;
+}
+.list_content_home a:hover{
+    color: #0f9ce8;
+}
+.list_content a:hover{
+    color: #0082ca;
+}
+.automate_text{
+    display: flex;
+    flex-direction: column;
+    margin-top: 140px;
+    margin-left: 10%;
+}
+.automate_title{
+    line-height: 1;
+    font-size: 50px;
+    font-weight: 900;
+    width: 540px;
+}
+.automate_paragraph{
+    margin-top: -10px;
+    font-size: 24px;
+    width: 500px;
+    color: #787878;
+}
+.buttons_contact_learn_more{
+    display: flex;
+    gap: 40px;
+    width: 500px;
+    align-items: center;
+}
+.contact_button,
+.learn_button{
+    display: flex;
+    justify-content: center;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 50px;
+    transition: 0.5s;
+    
+}
+.contact_button{
+    background-color: #0082ca;
+    color: white;  
+}
+.contact_button:hover {
+    background-color: #079fe1;
+}
+.learn_button{
+    background-color: transparent;
+    color: #0082ca;
+    border: 2px solid #0082ca;
+    
+}
+.learn_button:hover {
+    background-color: #0082ca;
+    color: white;
+}
+.middle_section_part_1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.planning_communication{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.planning_communication_title{
+    width: 60%;
+    font-weight: 900;
+    font-size: 3em;
+}
+.planning_communication_paragraph{
+    margin: -10px;
+    color: #787878;
+    font-size: 24px;
+    width: 50%;
+}

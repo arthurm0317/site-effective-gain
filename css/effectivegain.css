@@ -79,9 +79,20 @@ p {
 .button.falec,
 .button.testeb {
     background-color: #0082ca;
+    margin-top: 0px;
     color: white;
-}
+    border: none;
 
+}
+.bottom-section{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    position: absolute;
+    margin-top: -350px;
+    width: 100%;
+
+}
 
 section {
     padding: 50px 0;
