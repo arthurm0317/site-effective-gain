@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração e Chat com o Bot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #1778be;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .back-button:hover {
+            background-color: #15a464;
+        }
+
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 800px;
+            gap: 20px;
+        }
+
+        .prompt-container, .chat-container {
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #1778be;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .prompt-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #1778be;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+            margin-bottom: 10px;
+        }
+
+        .save-prompt-btn, #send-btn {
+            padding: 10px;
+            width: 100%;
+            background-color: #1778be;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .save-prompt-btn:hover, #send-btn:hover {
+            background-color: #15a464;
+        }
+
+        #chatbox-body {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            background-color: #fdfcf1;
+        }
+
+        .response {
+            margin-bottom: 10px;
+        }
+
+        .user-message {
+            color: #1778be;
+            font-weight: bold;
+        }
+
+        .bot-message {
+            color: #15a464;
+        }
+
+        .chatbox-footer {
+            display: flex;
+        }
+
+        #user-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="back-button">Voltar</a>
+
+<div class="container">
+    <!-- Container de Prompt -->
+    <div class="prompt-container">
+        <h2>Defina o Comportamento da IA</h2>
+        <textarea id="user-prompt" rows="5" placeholder="Exemplo: Você é um assistente de venda de cartão..."></textarea>
+        <button id="save-prompt-btn" class="save-prompt-btn">Salvar Prompt</button>
+    </div>
+
+    <!-- Container de Chat -->
+    <div class="chat-container">
+        <h2>Converse com o Bot</h2>
+        <div id="chatbox-body">
+            <div class="response bot-message">Olá! Como posso te ajudar hoje?</div>
+        </div>
+        <div class="chatbox-footer">
+            <input type="text" id="user-input" placeholder="Digite sua pergunta..." />
+            <button id="send-btn">Enviar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let userDefinedPrompt = "Você é um assistente útil e profissional que responderá conforme o prompt personalizado.";
+
+    document.getElementById('save-prompt-btn').addEventListener('click', function () {
+        const promptInput = document.getElementById('user-prompt').value;
+        if (promptInput.trim() !== "") {
+            userDefinedPrompt = promptInput;
+            alert("Prompt personalizado salvo!");
+        }
+    });
+
+    document.getElementById('send-btn').addEventListener('click', async function () {
+        const userInput = document.getElementById('user-input').value;
+        const chatboxBody = document.getElementById('chatbox-body');
+
+        if (userInput.trim() === "") return;
+
+        const userMessage = document.createElement('div');
+        userMessage.classList.add('response', 'user-message');
+        userMessage.textContent = `Você: ${userInput}`;
+        chatboxBody.appendChild(userMessage);
+        chatboxBody.scrollTop = chatboxBody.scrollHeight;
+
+        document.getElementById('user-input').value = "";
+
+        const waitingMessage = document.createElement('div');
+        waitingMessage.classList.add('response', 'bot-message');
+        waitingMessage.textContent = "Aguarde, gerando resposta...";
+        chatboxBody.appendChild(waitingMessage);
+        chatboxBody.scrollTop = chatboxBody.scrollHeight;
+
+        const apiKey = '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';
+        const apiUrl = 'https://api.openai.com/v1/chat/completions';
+
+        const messages = [
+            { role: "system", content: userDefinedPrompt },
+            { role: "user", content: userInput }
+        ];
+
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: "gpt-3.5-turbo",
+                    messages: messages
+                })
+            });
+
+            const data = await response.json();
+            const chatResponse = data.choices[0].message.content;
+
+            waitingMessage.remove();
+
+            const botMessage = document.createElement('div');
+            botMessage.classList.add('response', 'bot-message');
+            botMessage.textContent = `Bot: ${chatResponse}`;
+            chatboxBody.appendChild(botMessage);
+            chatboxBody.scrollTop = chatboxBody.scrollHeight;
+        } catch (error) {
+            waitingMessage.textContent = "Erro ao conectar com a API.";
+            console.error('Erro:', error);
+        }
+    });
+</script>
+
+</body>
+</html>
