@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+.top-section {
+    position: relative;
+    text-align: left;
+    color: black;
+}
+
+.header-image {
+    width: 100%;
+    height: auto;
+}
+
+.content {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    color: black;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button {
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    transition: background 0.3s;
+    white-space: nowrap;
+}
+
+.button.contato {
+    background-color: #0082ca;
+    color: white;
+}
+
+.button.contato:hover {
+    background-color: #006fa0;
+}
+
+.button.saber-mais {
+    background-color: transparent;
+    color: #0082ca;
+    border: 2px solid #0082ca;
+}
+
+.button.saber-mais:hover {
+    background-color: #0082ca;
+    color: white;
+}
+
+.button.falec,
+.button.testeb {
+    background-color: #0082ca;
+    color: white;
+}
+
+
+section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#contato, #sabermais {
+    background-color: #fff;
+    margin-top: 50px;
+}
+
+
+@media (max-width: 768px) {
+    .content {
+        top: 5%;
+        left: 5%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .button {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+@media (max-width: 480px) {
+    .content {
+        top: 5%;
+        left: 5%;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .button {
+        font-size: 0.9em;
+        padding: 10px 20px;
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
