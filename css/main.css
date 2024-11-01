@@ -243,3 +243,61 @@ body{
 .contact_us_button:hover{
     background-color: #079fe1;
 }
+.middle_section_part_2{
+    background-image: url(../midia/Effective_Gain_04.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.div_middle_sect{
+    width: 50%;
+    margin-left: 50%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.gap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.div_middle_sect h1{
+    line-height: 1;
+    width: 70%;
+    text-align: left;
+    font-weight: 900;
+    font-size: 3em;
+}
+.check_and_text{
+    display: flex;
+    align-items: flex-start;
+    justify-content: start; 
+    justify-items: start;
+    gap: 3%;
+}
+.check_and_text img{
+    width: 30px;
+    height: 30px;   
+}
+.subtitle{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.subtitle h1{
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    font-size: 1.7em;
+    font-weight: 900;
+}
+.subtitle p{
+    margin: 5px;
+    width: 90%;
+    text-align: left;
+    color: #787878;
+    font-size: 1.2em;
+    margin-bottom: 2%;
+}
