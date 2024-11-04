@@ -325,17 +325,18 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 50%;
+    height: 30%;
     margin-top: -35%;
 }
 .card{
-    height: 35%;
+    height: 55%;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 20%;
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
 }
 .title_card, .title_card_mult, .title_card_emp{
     background-color: #58BF90;
@@ -460,4 +461,56 @@ body{
 }
 #empresa_preco h1{
     color: #fdd835;
+}
+.bottom_section{
+    display: flex;
+    flex-direction: column;
+}
+.card:hover{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); 
+    transform: translateY(-1%);
+}
+.div_bottom_section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -40%;
+    margin-left: 2%;
+}
+.div_bottom_section img{
+    width: 15%;
+}
+.div_bottom_section h1{
+    color: #017bbd;
+    align-self: center;
+
+}
+.logo_bottom{
+    display: flex;
+    gap: 2%;
+}
+.about_sup_social{
+    display: flex;
+    width: 50%;
+    left: 50%;
+    gap: 20%;
+}
+.about_sup_social h1{
+    color: black;
+}
+.bottom_section hr{
+    width: 80%;
+    height: 2px;
+    border: none;
+    border-radius: 20px;
+    background-color: #acaaaa;
+    margin-top: 30%;
+
+}
+.copyright{
+    display: flex;
+    justify-content: center;
+}
+.copyright p{
+    font-size: 1.2em;
 }
