@@ -1,11 +1,11 @@
 require('dotenv').config();
 const express = require('express');
-const fetch = require('node-fetch'); // Instale com `npm install node-fetch`
-const cors = require('cors');  // Importe o pacote CORS
+const fetch = require('node-fetch'); 
+const cors = require('cors');  
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-// Habilite o CORS para qualquer origem
+
 app.use(cors());
 
 app.use(express.json());
